@@ -10,9 +10,9 @@
 #' <!-- </div> -->
 #' 
 #' <div>
-#' <object data="101_assets/SDM101_Intro.pdf" type="application/pdf" width="100%" height="600px"> 
+#' <object data="111_assets/SDM_Transfer.pdf" type="application/pdf" width="100%" height="600px"> 
 #'   <p>It appears you don't have a PDF plugin for this browser.
-#'    No biggie... you can <a href="02_assets/02_DataWrangling.pdf">click here to
+#'    No biggie... you can <a href="111_assets/SDM_Transfer.pdf">click here to
 #'   download the PDF file.</a></p>  
 #'  </object>
 #'  </div>

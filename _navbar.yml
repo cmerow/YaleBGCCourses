@@ -27,6 +27,8 @@ left:
         href: 101SDMs.html
       - text: "3.2 Integrating data types in SDMS"
         href: 110_SDMs_Integrating_Data_Types.html
+      - text: "3.3 Extrapolating SDMS"
+        href: 111_SDM_Transfer.html
       - text: "-----------------"
   - text: "Resources"
     href: Head3_Resources.html
