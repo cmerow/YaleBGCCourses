@@ -50,9 +50,10 @@ The `spocc` package allows you to hit a number of the larger databases for prese
 
 ```r
 # get presence data
-# pres=spocc::occ('Alliaria petiolata',from='gbif',limit=5000) # this can be slow
+pres.tmp=spocc::occ('Alliaria petiolata',from='gbif',limit=5000) # this can be slow
+pres=pres.tmp$gbif$data[[1]][,c('longitude','latitude')]
   # so just read in the result of me running this earlier
-pres=read.csv('https://cmerow.github.io/YaleBGCCourses/101_assets/AP_gbif.csv')[,c('longitude','latitude')]
+#pres=read.csv('https://cmerow.github.io/YaleBGCCourses/101_assets/AP_gbif.csv')[,c('longitude','latitude')]
 pres=pres[complete.cases(pres),] # toss records without coords
 ```
 
@@ -226,29 +227,29 @@ summary(mod.worst) # show coefficients
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -4.0280  -0.2408  -0.0706  -0.0308   5.1147  
+## -5.9215  -0.2497  -0.0725  -0.0195   5.0739  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(>|z|)    
-## (Intercept) -15.37924    0.30294 -50.766  < 2e-16 ***
-## bio1          2.58714    0.30915   8.369  < 2e-16 ***
-## bio2          0.88788    0.07252  12.243  < 2e-16 ***
-## bio13         0.32046    0.09170   3.495 0.000475 ***
-## bio14        -0.96095    0.09545 -10.067  < 2e-16 ***
-## I(bio1^2)     0.21355    0.10382   2.057 0.039705 *  
-## I(bio2^2)     0.23243    0.03706   6.272 3.57e-10 ***
-## I(bio13^2)    0.22246    0.06308   3.526 0.000421 ***
-## I(bio14^2)    0.41497    0.05867   7.073 1.52e-12 ***
+## (Intercept) -14.48566    0.25746 -56.264  < 2e-16 ***
+## bio1          2.36738    0.28109   8.422  < 2e-16 ***
+## bio2          0.34557    0.05220   6.620  3.6e-11 ***
+## bio13        -0.59795    0.06548  -9.132  < 2e-16 ***
+## bio14         0.12487    0.10737   1.163 0.244821    
+## I(bio1^2)     0.18781    0.08635   2.175 0.029635 *  
+## I(bio2^2)     0.09721    0.02730   3.560 0.000370 ***
+## I(bio13^2)    0.18978    0.05284   3.592 0.000328 ***
+## I(bio14^2)    0.20319    0.05810   3.497 0.000471 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 8340.1  on 3353  degrees of freedom
-## Residual deviance: 6823.3  on 3345  degrees of freedom
-## AIC: 7579.3
+##     Null deviance: 17982  on 3844  degrees of freedom
+## Residual deviance: 14262  on 3836  degrees of freedom
+## AIC: 16000
 ## 
-## Number of Fisher Scoring iterations: 17
+## Number of Fisher Scoring iterations: 16
 ```
 
 
@@ -283,16 +284,16 @@ str(response.curves) #structure of the object used for plotting
 ## List of 4
 ##  $ :'data.frame':	100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -1.79 -1.74 -1.7 -1.65 -1.61 ...
-##   ..$ ys: num [1:100] -19.3 -19.2 -19.2 -19.1 -19 ...
+##   ..$ ys: num [1:100] -18.1 -18 -18 -17.9 -17.8 ...
 ##  $ :'data.frame':	100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -4.75 -4.68 -4.61 -4.54 -4.47 ...
-##   ..$ ys: num [1:100] -14.3 -14.4 -14.5 -14.6 -14.7 ...
+##   ..$ ys: num [1:100] -13.9 -14 -14 -14.1 -14.1 ...
 ##  $ :'data.frame':	100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -2.82 -2.76 -2.7 -2.64 -2.58 ...
-##   ..$ ys: num [1:100] -14.5 -14.6 -14.6 -14.7 -14.7 ...
+##   ..$ ys: num [1:100] -11.3 -11.4 -11.5 -11.6 -11.7 ...
 ##  $ :'data.frame':	100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -2.52 -2.46 -2.4 -2.34 -2.28 ...
-##   ..$ ys: num [1:100] -10.3 -10.5 -10.7 -10.9 -11 ...
+##   ..$ ys: num [1:100] -13.5 -13.6 -13.6 -13.7 -13.7 ...
 ```
 
 
@@ -442,9 +443,9 @@ noExtrapMask1=extrapolationMask(clim.eu,
 
 ```
 ##       nonNAPreMask nonNAMasked numCellsMasked
-## bio1         67136       55723          11413
-## bio2         67136       62154           4982
-## bio13        67136       39424          27712
+## bio1         67136       56266          10870
+## bio2         67136       62473           4663
+## bio13        67136       38252          28884
 ## bio14        67136       36814          30322
 ```
 
