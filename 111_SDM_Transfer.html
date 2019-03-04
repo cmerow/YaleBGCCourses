@@ -695,27 +695,27 @@ summary(mod.worst) # show coefficients</code></pre>
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -5.9215  -0.2497  -0.0725  -0.0195   5.0739  
+## -5.8954  -0.2600  -0.0861  -0.0287   5.0121  
 ## 
 ## Coefficients:
 ##              Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept) -14.48566    0.25746 -56.264  &lt; 2e-16 ***
-## bio1          2.36738    0.28109   8.422  &lt; 2e-16 ***
-## bio2          0.34557    0.05220   6.620  3.6e-11 ***
-## bio13        -0.59795    0.06548  -9.132  &lt; 2e-16 ***
-## bio14         0.12487    0.10737   1.163 0.244821    
-## I(bio1^2)     0.18781    0.08635   2.175 0.029635 *  
-## I(bio2^2)     0.09721    0.02730   3.560 0.000370 ***
-## I(bio13^2)    0.18978    0.05284   3.592 0.000328 ***
-## I(bio14^2)    0.20319    0.05810   3.497 0.000471 ***
+## (Intercept) -14.21454    0.22871 -62.150  &lt; 2e-16 ***
+## bio1          2.16403    0.24805   8.724  &lt; 2e-16 ***
+## bio2          0.35567    0.05117   6.951 3.63e-12 ***
+## bio13        -0.53618    0.06442  -8.324  &lt; 2e-16 ***
+## bio14         0.03566    0.09912   0.360 0.718982    
+## I(bio1^2)     0.24379    0.07819   3.118 0.001821 ** 
+## I(bio2^2)     0.09915    0.02684   3.694 0.000221 ***
+## I(bio13^2)    0.15718    0.05209   3.018 0.002549 ** 
+## I(bio14^2)    0.22543    0.05427   4.154 3.26e-05 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for poisson family taken to be 1)
 ## 
-##     Null deviance: 17982  on 3844  degrees of freedom
-## Residual deviance: 14262  on 3836  degrees of freedom
-## AIC: 16000
+##     Null deviance: 18398  on 3866  degrees of freedom
+## Residual deviance: 14650  on 3858  degrees of freedom
+## AIC: 16432
 ## 
 ## Number of Fisher Scoring iterations: 16</code></pre>
 </div>
@@ -739,16 +739,16 @@ response.curves=lapply(1:nlayers(clim.us),function(x){ # loop over each variable
 <pre><code>## List of 4
 ##  $ :&#39;data.frame&#39;:    100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -1.79 -1.74 -1.7 -1.65 -1.61 ...
-##   ..$ ys: num [1:100] -18.1 -18 -18 -17.9 -17.8 ...
+##   ..$ ys: num [1:100] -17.3 -17.2 -17.2 -17.1 -17.1 ...
 ##  $ :&#39;data.frame&#39;:    100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -4.75 -4.68 -4.61 -4.54 -4.47 ...
-##   ..$ ys: num [1:100] -13.9 -14 -14 -14.1 -14.1 ...
+##   ..$ ys: num [1:100] -13.7 -13.7 -13.7 -13.8 -13.8 ...
 ##  $ :&#39;data.frame&#39;:    100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -2.82 -2.76 -2.7 -2.64 -2.58 ...
-##   ..$ ys: num [1:100] -11.3 -11.4 -11.5 -11.6 -11.7 ...
+##   ..$ ys: num [1:100] -11.4 -11.5 -11.6 -11.7 -11.8 ...
 ##  $ :&#39;data.frame&#39;:    100 obs. of  2 variables:
 ##   ..$ xs: num [1:100] -2.52 -2.46 -2.4 -2.34 -2.28 ...
-##   ..$ ys: num [1:100] -13.5 -13.6 -13.6 -13.7 -13.7 ...</code></pre>
+##   ..$ ys: num [1:100] -12.9 -12.9 -13 -13.1 -13.1 ...</code></pre>
 <pre class="r"><code>  # plot the curves
 par(mfrow=c(2,2),mar=c(4,5,.5,.5)) # # rows and cols for plotting
 for(i in 1:nlayers(clim.us)){ # loop over layers
